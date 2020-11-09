@@ -1,0 +1,14 @@
+{
+    "name": "hexlet/code",
+    "description": "hexlet test code",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grigory",
+            "email": "dongrigorio@yanex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
