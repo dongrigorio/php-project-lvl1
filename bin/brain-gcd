@@ -1,0 +1,43 @@
+#! /usr/bin/env php
+<?php namespace Brain\Game\gcd;
+
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath)) {
+    require_once $autoloadPath;
+}
+
+use function cli\line;
+use function cli\prompt;
+
+function getRandomNumber(){
+    return rand(0,99);
+}
+
+function gcd($a, $b){
+    while(true){
+	if (($a %= $b) === 0)
+            return abs($b);
+	else if (($b %= $a) === 0)
+            return abs($a);
+    }
+}
+
+$num1 = getRandomNumber();
+$num2 = getRandomNumber();
+
+line('Welcome to the Brain Game!');
+$name = prompt('May I have your name?');
+line('Hello, %s', $name);
+line('Question: %s %s', $num1, $num2);
+$answer = prompt('Your answer ');
+
+$gcd =  gcd($num1, $num2);
+
+if($answer === $gcd){
+    line('Correct!');
+    line('Congratulations, %s', $name);
+} else {
+    line("'%d' is wrong answer ;(. Correct answer was '%d'.", $answer, $gcd);
+    line("Let's try again, %s", $name);
+}
+
